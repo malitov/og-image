@@ -103,6 +103,7 @@ function getCss(theme: string, fontSize: string) {
         font-family: 'Lato', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
+        font-weight: 300;
         color: ${foreground};
         line-height: 1.8;
     }`;
