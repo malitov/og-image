@@ -7,7 +7,7 @@ const twOptions = { folder: 'svg', ext: '.svg' };
 const emojify = (text: string) => twemoji.parse(text, twOptions);
 
 const rglr = readFileSync(
-  `${__dirname}/../_fonts/jost-v3-latin_cyrillic-regular.woff2`
+  `${__dirname}/../_fonts/jost-v3-latin_cyrillic-300.woff2`
 ).toString('base64');
 const bold = readFileSync(
   `${__dirname}/../_fonts/jost-v3-latin_cyrillic-700.woff2`
@@ -28,7 +28,7 @@ function getCss(theme: string, fontSize: string) {
     @font-face {
         font-family: '${fontFamily}';
         font-style:  normal;
-        font-weight: 400;
+        font-weight: 300;
         src: url(data:font/woff2;charset=utf-8;base64,${rglr}) format('woff2');
     }
 
