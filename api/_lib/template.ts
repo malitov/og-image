@@ -7,19 +7,17 @@ const twOptions = { folder: 'svg', ext: '.svg' };
 const emojify = (text: string) => twemoji.parse(text, twOptions);
 
 const rglr = readFileSync(
-  `${__dirname}/../_fonts/lato-v16-latin-regular.woff2`
+  `${__dirname}/../_fonts/jost-v3-latin_cyrillic-regular.woff2`
 ).toString('base64');
 const bold = readFileSync(
-  `${__dirname}/../_fonts/lato-v16-latin-700.woff2`
-).toString('base64');
-const mono = readFileSync(
-  `${__dirname}/../_fonts/lato-v16-latin-300.woff2`
+  `${__dirname}/../_fonts/jost-v3-latin_cyrillic-700.woff2`
 ).toString('base64');
 
 function getCss(theme: string, fontSize: string) {
   let background = 'white';
   let foreground = 'black';
   let radial = 'lightgray';
+  let fontFamily = 'Jost';
 
   if (theme === 'dark') {
     background = 'black';
@@ -28,25 +26,18 @@ function getCss(theme: string, fontSize: string) {
   }
   return `
     @font-face {
-        font-family: 'Lato';
+        font-family: '${fontFamily}';
         font-style:  normal;
         font-weight: 400;
         src: url(data:font/woff2;charset=utf-8;base64,${rglr}) format('woff2');
     }
 
     @font-face {
-        font-family: 'Lato';
+        font-family: '${fontFamily}';
         font-style:  normal;
         font-weight: 700;
         src: url(data:font/woff2;charset=utf-8;base64,${bold}) format('woff2');
     }
-
-    @font-face {
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 300;
-        src: url(data:font/woff2;charset=utf-8;base64,${mono})  format("woff2");
-      }
 
     body {
         background: ${background};
@@ -61,7 +52,7 @@ function getCss(theme: string, fontSize: string) {
 
     code {
         color: #D400FF;
-        font-family: 'Lato';
+        font-family: '${fontFamily}';
         white-space: pre-wrap;
         letter-spacing: -5px;
     }
@@ -100,12 +91,12 @@ function getCss(theme: string, fontSize: string) {
     }
     
     .heading {
-        font-family: 'Lato', sans-serif;
+        font-family: '${fontFamily}', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         font-weight: 300;
         color: ${foreground};
-        line-height: 1.8;
+        line-height: 1.1;
     }`;
 }
 
